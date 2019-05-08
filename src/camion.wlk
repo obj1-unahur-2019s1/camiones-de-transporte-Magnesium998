@@ -33,8 +33,12 @@ object camion {
 	method tieneAlgoQuePesaEntre(min,max) {return cosas.any{cosa => cosa.peso().between(min,max)}}
 
 	method cosaMasPesada() {
-		return cosas.max{cosa => cosa.peso()}
+		return cosas.max{cosa => cosa.peso()}.peso()
 	}
 	
 	method totalBultos() {}
+	
+	method pesos() {
+		return cosas.map({cosa => cosa.peso()})
+	}
 }
